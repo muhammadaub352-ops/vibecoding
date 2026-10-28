@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<title>Вайбкодинг от А до Я — курс: сайты и боты с ИИ</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta name="description" content="Курс по вайбкодингу: сайты, Telegram-боты и мини-приложения с помощью нейросетей — без опыта в коде. Спикер Аюб заработал больше 500 000 ₽ на вайбкодинге. Старт 10 ноября.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Вайбкодинг от А до Я">
+<meta property="og:description" content="Сайты, боты и приложения с помощью ИИ — без опыта. Реальные кейсы и чеки, три тарифа, старт 10 ноября.">
+<meta property="og:image" content="https://muhammadaub352-ops.github.io/vibecoding/img/og.jpg">
+<meta property="og:url" content="https://muhammadaub352-ops.github.io/vibecoding/">
+<link rel="canonical" href="https://muhammadaub352-ops.github.io/vibecoding/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f4f8f5">
+<link rel="preload" href="fonts/oswald-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Oswald;font-weight:700;font-display:swap;src:url(fonts/oswald-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:Oswald;font-weight:700;font-display:swap;src:url(fonts/oswald-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
+@font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(fonts/manrope-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
+
+:root{
+  --bg:#f4f8f5;--mint:#dcede4;--mint2:#c5e2d3;--green:#4f9e7c;--green-d:#2f7a5a;--green-l:#8fd1b1;
+  --ink:#1c1c1c;--ink2:#232624;--muted:#5a625e;--card:#fff;--line:#d9e6de;--sun:#ffc978;--red:#d0574a;--pos:#1f9d55;
+  --head:Oswald,"Arial Narrow",Impact,sans-serif;--text:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:22px;--pad:clamp(16px,5vw,64px);--top:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--top) + 8px)}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--text);overflow-x:hidden;overflow-wrap:break-word;-webkit-tap-highlight-color:transparent}
+body.lock{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--pad)}
+.wrap>*,[class*=grid]>*,.cases>*,.plans>*{min-width:0}
+.h{font-family:var(--head);font-weight:700;text-transform:uppercase;line-height:1.08}
+.h .g{color:var(--green)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);line-height:1.4}
+.eyebrow::before{content:"";flex:0 0 26px;height:2px;background:var(--green)}
+section{padding:clamp(64px,9vw,112px) 0}
+.sec-title{font-size:clamp(34px,5.4vw,64px);margin:14px 0 16px}
+.sec-lead{color:var(--muted);max-width:58ch;font-size:clamp(16px,1.6vw,19px)}
+.dark{background:var(--ink);color:#fff}
+.dark .eyebrow{color:var(--sun)}.dark .eyebrow::before{background:var(--sun)}
+.dark .sec-title .g{color:var(--green-l)}
+.dark .sec-lead{color:#c4cbc7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font:700 16px/1.2 var(--text);text-decoration:none;text-align:center;border:0;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn-main{background:var(--ink);color:#fff;box-shadow:0 10px 30px -12px rgba(0,0,0,.45)}
+.btn-main:hover{transform:translateY(-2px);background:#000}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-sun:hover{transform:translateY(-2px)}
+.dark .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+.dark .btn-ghost:hover{background:#fff;color:var(--ink)}
+.disc{margin-top:18px;font-size:13px;line-height:1.5;color:var(--muted)}
+.dark .disc{color:#8f9893}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:50;background:rgba(244,248,245,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.scrolled{border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--top);gap:16px}
+.logo{font-family:var(--head);font-size:22px;text-transform:uppercase;text-decoration:none;letter-spacing:.02em;line-height:1}
+.logo b{color:var(--green)}
+.menu{display:flex;gap:26px;font-size:15px;font-weight:700}
+.menu a{text-decoration:none;opacity:.75}.menu a:hover{opacity:1}
+.top .btn{min-height:44px;padding:0 20px;font-size:15px}
+
+/* первый экран */
+.hero{padding:clamp(24px,4vw,48px) 0 0;background:linear-gradient(180deg,var(--bg) 0%,var(--mint) 100%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;align-items:end;gap:24px}
+.hero-text{padding-bottom:clamp(40px,7vw,96px)}
+.hero h1{font-size:clamp(48px,6.4vw,92px);white-space:nowrap;line-height:1.02;margin:18px 0 20px}
+.hero h1 .g{display:block}
+.hero-lead{font-size:clamp(17px,1.7vw,21px);max-width:36ch;color:#39413d}
+.hero-lead b{color:var(--ink)}
+.sale{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:20px;padding:10px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:14.5px;font-weight:700;line-height:1.4}
+.sale b{font-family:var(--head);font-size:18px;color:var(--red);letter-spacing:.02em}
+.sale b:empty{display:none}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(16px,3vw,40px);margin-top:34px}
+.facts div{font-size:14px;color:var(--muted);line-height:1.4}
+.facts b{display:block;font-family:var(--head);font-size:34px;color:var(--ink);line-height:1.1}
+.hero-photo{position:relative;height:620px}
+.hero-circle{position:absolute;left:50%;bottom:0;width:min(520px,100%);aspect-ratio:1;transform:translate(-50%,-4%);border-radius:50%;background:radial-gradient(circle at 50% 35%,#fff 0%,#e9f5ee 40%,var(--mint2) 100%)}
+.hero-circle::after{content:"";position:absolute;inset:-18px;border-radius:50%;border:1.5px dashed rgba(79,158,124,.35)}
+.hero-photo>img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:92%;width:auto;max-width:none;z-index:1;-webkit-mask-image:linear-gradient(180deg,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,#000 86%,transparent 100%);filter:drop-shadow(0 24px 30px rgba(20,60,40,.2))}
+.badge{position:absolute;z-index:2;left:0;bottom:10%;background:#fff;border-radius:16px;padding:12px 18px 12px 16px;border-left:4px solid var(--green);box-shadow:0 18px 40px -18px rgba(0,0,0,.35);line-height:1.35}
+.badge b{display:block;font-family:var(--head);text-transform:uppercase;font-size:20px;line-height:1.15}
+.badge small{color:var(--muted);font-size:13px}
+.pay{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 18px 40px -18px rgba(0,0,0,.35);font-size:12.5px;line-height:1.3;color:var(--muted);animation:floaty 6s ease-in-out infinite}
+.pay i{flex:0 0 30px;height:30px;border-radius:50%;background:var(--mint);display:grid;place-items:center;font-style:normal;color:var(--green-d);font-weight:700}
+.pay b{display:block;color:var(--pos);font-size:16px}
+.pay.p1{right:0;top:16%}
+.pay.p2{right:4%;top:44%;animation-delay:-3s}
+@keyframes floaty{50%{transform:translateY(-8px)}}
+
+/* кейсы */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.case{background:var(--ink2);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.case-top{display:flex;gap:14px;align-items:center}
+.case-top img{width:68px;height:68px;border-radius:50%;object-fit:cover;object-position:50% 25%;flex:0 0 68px;border:2px solid rgba(255,255,255,.18);background:#2d312f}
+.case-top b{display:block;font-family:var(--head);text-transform:uppercase;font-size:24px;line-height:1.1}
+.case-top small{display:block;color:#a9b1ad;font-size:13.5px;line-height:1.4;margin-top:2px}
+.case-sum{font-family:var(--head);font-size:44px;line-height:1.05;color:var(--sun)}
+.case-sum small{display:block;font-family:var(--text);font-size:14px;font-weight:400;color:#c4cbc7;margin-top:4px;line-height:1.4}
+.case-story{font-size:15px;line-height:1.5;color:#c9cfcc}
+.case ul{list-style:none;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.1)}
+.case li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14.5px;line-height:1.4;color:#d8dcda}
+.case li b{white-space:nowrap;color:#fff}
+.checks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:auto}
+.checks.c3{grid-template-columns:repeat(3,1fr)}
+.chk{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#111;cursor:zoom-in;padding:0}
+.chk img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.chk span{position:absolute;left:4px;right:4px;bottom:4px;background:rgba(20,22,21,.86);color:#7fe0a8;font-size:11.5px;font-weight:700;line-height:1.2;border-radius:6px;padding:3px 2px;text-align:center}
+.chk-cap{font-size:12.5px;color:#8f9893;margin-top:-8px}
+
+/* работы */
+.works{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:32px var(--pad) 12px;margin:0 calc(var(--pad) * -1);scroll-padding:0 var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.works::-webkit-scrollbar{display:none}
+.work{flex:0 0 min(440px,84vw);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.browser{background:#eef2ef;padding:8px 8px 0}
+.browser-bar{display:flex;gap:5px;align-items:center;padding:0 4px 8px}
+.browser-bar i{width:8px;height:8px;border-radius:50%;background:#d3dbd6}
+.browser-bar span{margin-left:8px;flex:1;background:#fff;border-radius:6px;font-size:11px;color:var(--muted);padding:2px 8px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser img{border-radius:8px 8px 0 0;aspect-ratio:16/10;height:auto;object-fit:cover;object-position:top;width:100%}
+.work-info{padding:16px 18px 18px;display:grid;gap:4px}
+.work-info .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.work-info b{font-size:18px;line-height:1.3}
+.work-info .pr{font-family:var(--head);font-size:24px;line-height:1.1;color:var(--green-d);white-space:nowrap}
+.work-info small{color:var(--muted);font-size:14px;line-height:1.45}
+.swipe{display:none;font-size:13px;color:var(--muted);margin-top:6px}
+
+/* навыки */
+.skills{background:linear-gradient(180deg,var(--bg),var(--mint))}
+.sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.sk i{font-style:normal;width:44px;height:44px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:22px;line-height:1}
+.sk b{font-size:17px;line-height:1.3;-webkit-hyphens:auto;hyphens:auto}
+.sk span{font-size:14.5px;line-height:1.45;color:var(--muted)}
+.sk.hl{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sk.hl i{background:rgba(255,201,120,.18)}
+.sk.hl span{color:#c4cbc7}
+
+/* программа */
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+.stage .n{font-family:var(--head);font-size:15px;letter-spacing:.06em;color:var(--green-d)}
+.stage h3{font-family:var(--head);text-transform:uppercase;font-size:26px;line-height:1.1;margin:4px 0 12px}
+.stage ol{list-style:none;display:grid;gap:8px;font-size:14.5px;line-height:1.4}
+.stage li{display:grid;grid-template-columns:28px 1fr;gap:6px;color:#39413d}
+.stage li span{font-weight:700;color:var(--green)}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.how div{display:flex;align-items:center;gap:12px;background:var(--mint);border-radius:16px;padding:14px 16px;font-size:15px;font-weight:700;line-height:1.35}
+.how i{flex:0 0 32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal;font-family:var(--head);font-size:16px}
+
+/* тест */
+.quiz-sec{padding-top:0}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px);align-items:start}
+.quiz .sec-title{font-size:clamp(30px,4.2vw,50px)}
+.q-bar{height:6px;border-radius:6px;background:var(--mint);overflow:hidden;margin-bottom:18px}
+.q-bar i{display:block;height:100%;width:33.3%;background:var(--green);border-radius:6px;transition:width .3s}
+.q-step{font-size:13px;font-weight:700;color:var(--green-d);letter-spacing:.08em;text-transform:uppercase}
+.q-title{font-size:21px;font-weight:700;line-height:1.35;margin:6px 0 16px}
+.q-opts{display:grid;gap:10px}
+.q-opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;font-size:15.5px;line-height:1.4;cursor:pointer;transition:border-color .2s,background .2s}
+.q-opt:hover{border-color:var(--green);background:#fff}
+.q-opt i{flex:0 0 22px;height:22px;border-radius:50%;border:2px solid var(--mint2);font-style:normal}
+.q-res{display:none;text-align:left}
+.q-res.on{display:block}
+.q-res .tag{font-family:var(--head);text-transform:uppercase;font-size:clamp(34px,5vw,48px);line-height:1.1;color:var(--green-d);margin:6px 0 8px}
+.q-res p{color:var(--muted);font-size:16px}
+.q-res .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.q-back{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:14px;margin-top:14px}
+.no-js .quiz-box{display:none}
+
+/* тарифы */
+.plans-sec{background:linear-gradient(180deg,var(--bg),var(--mint) 55%,var(--bg))}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:12px 12px 22px;display:flex;flex-direction:column;position:relative}
+.plan.pop{border:2px solid var(--green);box-shadow:0 30px 60px -30px rgba(47,122,90,.55)}
+.plan.vip{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hot{position:absolute;z-index:3;top:-13px;left:24px;background:var(--green);color:#fff;font-size:12.5px;font-weight:700;line-height:1.3;border-radius:99px;padding:5px 12px}
+.plan.vip .hot{background:var(--sun);color:var(--ink)}
+.pic{position:relative;height:200px;border-radius:18px;overflow:hidden;background:linear-gradient(160deg,#e9f5ee,var(--mint2))}
+.plan.vip .pic{background:radial-gradient(70% 60% at 50% 40%,rgba(255,201,120,.28),transparent 70%),linear-gradient(160deg,#2a2d2b,#1a1c1b)}
+.pic .phone{position:absolute;left:50%;bottom:-40px;transform:translateX(-50%) rotate(-4deg);width:118px;border-radius:20px;border:5px solid #1c1c1c;background:#1c1c1c;box-shadow:0 20px 40px -16px rgba(0,0,0,.45);overflow:hidden}
+.pic .phone img{border-radius:14px;width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top}
+.pic .chip{position:absolute;z-index:2;background:#fff;border-radius:12px;padding:7px 11px;font-size:12px;font-weight:700;line-height:1.3;box-shadow:0 12px 26px -12px rgba(0,0,0,.4)}
+.pic .chip.l{left:12px;top:16px}
+.pic .chip.r{right:12px;bottom:18px}
+.pic .chip em{font-style:normal;color:var(--pos)}
+.pic .laptop{position:absolute;left:10%;right:10%;top:22px;border-radius:10px 10px 0 0;border:5px solid #1c1c1c;border-bottom:0;overflow:hidden;box-shadow:0 20px 40px -16px rgba(0,0,0,.45)}
+.pic .laptop img{aspect-ratio:16/10;object-fit:cover;object-position:top;width:100%}
+.pic .tg{position:absolute;z-index:2;right:10px;bottom:12px;width:150px;background:#fff;border-radius:14px;padding:9px 10px;font-size:11.5px;line-height:1.35;box-shadow:0 14px 28px -12px rgba(0,0,0,.45)}
+.pic .tg b{display:block;color:#2b8bd6;font-size:11px}
+.call{position:absolute;inset:18px 18px auto;display:grid;grid-template-columns:1.25fr 1fr;gap:8px;height:128px}
+.call div{position:relative;border-radius:14px;overflow:hidden;background:#333735;border:1px solid rgba(255,255,255,.1)}
+.call img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:118%;width:auto;max-width:none}
+.call span{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:2px 7px}
+.call-bar{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:8px;white-space:nowrap}
+.call-bar i{font-style:normal;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#fff;border-radius:99px;font-size:12px;font-weight:700;padding:6px 12px}
+.call-bar i.end{background:#e2574a;border-color:#e2574a}
+.plan-body{padding:18px 12px 0;display:flex;flex-direction:column;flex:1}
+.plan .tag{font-family:var(--head);font-size:32px;line-height:1.1;text-transform:uppercase}
+.plan .sub{color:var(--muted);font-size:15px;line-height:1.45;margin-top:4px}
+.plan.vip .sub{color:#aab3ae}
+.pr-box{margin-top:16px}
+.pr-old{display:flex;align-items:center;gap:10px}
+.pr-old s{font-size:17px;font-weight:700;color:#9aa29e;text-decoration-thickness:2px;text-decoration-color:var(--red)}
+.pr-off{background:#e2574a;color:#fff;font-size:13px;font-weight:700;border-radius:8px;padding:3px 8px;line-height:1.2}
+.price{margin-top:4px;font-family:var(--head);font-size:50px;line-height:1.1}
+.price small{font-family:var(--text);font-size:16px;font-weight:700;color:var(--muted)}
+.plan.vip .price small,.plan.vip .pr-old s{color:#8b938f}
+.pr-next{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;line-height:1.35;color:var(--green-d);background:var(--mint);border-radius:8px;padding:5px 10px}
+.plan.vip .pr-next{background:rgba(255,201,120,.15);color:var(--sun)}
+.keys{list-style:none;display:grid;gap:9px;margin:18px 0 14px;font-size:15.5px;line-height:1.4}
+.keys li{padding-left:28px;position:relative}
+.keys li::before{content:"";position:absolute;left:0;top:.1em;width:19px;height:19px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%232f7a5a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.plan.vip .keys li::before{background-color:rgba(255,255,255,.12);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23ffc978' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.gift{display:flex;gap:10px;align-items:flex-start;background:#fff6e6;border:1px dashed #f0c27a;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.45;margin-bottom:14px}
+.gift i{font-style:normal;font-size:18px;line-height:1.2}
+.gift b{display:block}
+.plan.vip .gift{background:rgba(255,201,120,.08);border-color:rgba(255,201,120,.4);color:#e6e9e7}
+.more{margin-bottom:16px;border-top:1px solid var(--line)}
+.plan.vip .more{border-color:rgba(255,255,255,.12)}
+.more summary{list-style:none;cursor:pointer;padding:12px 0 0;font-size:14.5px;font-weight:700;color:var(--green-d);display:flex;align-items:center;gap:6px}
+.plan.vip .more summary{color:var(--sun)}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:"↓";transition:transform .2s}
+.more[open] summary::after{transform:rotate(180deg)}
+.more ul{list-style:none;display:grid;gap:7px;margin-top:12px;font-size:14px;line-height:1.45;color:var(--muted)}
+.plan.vip .more ul{color:#c4cbc7}
+.more li{padding-left:14px;position:relative}
+.more li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.plan .btn{width:100%;margin-top:auto}
+.plan.vip .btn-main{background:var(--sun);color:var(--ink)}
+.after-plans{margin-top:22px;text-align:center;font-size:15px;color:var(--muted)}
+.after-plans a{color:var(--green-d);font-weight:700}
+
+/* организатор */
+.about{padding-top:0}
+.ab-box{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:clamp(20px,4vw,40px);display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,36px);align-items:center}
+.ab-photo{width:150px;height:150px;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 35%,#fff,var(--mint2))}
+.ab-photo img{width:100%;height:118%;object-fit:cover;object-position:50% 8%}
+.ab-box .sec-title{font-size:clamp(28px,3.8vw,44px);margin:8px 0 6px}
+.ab-box p{color:var(--muted);font-size:16px}
+.ab-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ab-tags span{background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:13.5px;font-weight:700;line-height:1.35}
+
+/* вопросы */
+.faq{max-width:860px;margin-top:28px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;font-weight:700;font-size:18px;line-height:1.4;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:14px;font-size:28px;font-weight:400;color:var(--green);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--muted);max-width:66ch}
+
+/* финал */
+.final{text-align:center}
+.final .sec-lead{margin:0 auto}
+.final-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+
+footer{background:#141514;color:#9aa29e;padding:36px 0 calc(36px + env(safe-area-inset-bottom));font-size:14px;line-height:1.6}
+footer .wrap{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap}
+footer a{color:#fff}
+footer .logo{color:#fff;display:block;margin-bottom:10px}
+footer .logo b{color:var(--green-l)}
+footer small{display:block;margin-top:6px;font-size:12.5px}
+
+/* просмотр чека */
+.lb{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,12,11,.88)}
+.lb.on{display:flex}
+.lb img{max-width:min(520px,100%);max-height:84vh;border-radius:14px;background:#fff}
+.lb button{position:absolute;right:14px;top:calc(14px + env(safe-area-inset-top));width:46px;height:46px;border-radius:50%;border:0;background:#fff;font-size:20px;cursor:pointer}
+
+.mbar{display:none}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:1024px){
+  .menu{gap:18px;font-size:14px}
+  .cases{grid-template-columns:1fr;max-width:620px}
+  .sk-grid,.stages{grid-template-columns:1fr 1fr}
+  .how{grid-template-columns:1fr 1fr}
+  .plans{grid-template-columns:1fr;max-width:540px;margin-left:auto;margin-right:auto}
+  .quiz{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .menu{display:none}
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero-text{padding-bottom:0}
+  .hero h1{font-size:clamp(46px,13.5vw,96px)}
+  .hero-photo{height:min(108vw,520px);margin-top:10px}
+  .hero-circle{width:min(90vw,430px)}
+  .swipe{display:block}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;min-height:54px;align-items:center;justify-content:center;border-radius:99px;background:var(--ink);color:#fff;font-weight:700;text-decoration:none;box-shadow:0 12px 30px -10px rgba(0,0,0,.5);transition:transform .3s,opacity .3s}
+  .mbar.hide{transform:translateY(130%);opacity:0;pointer-events:none}
+  footer{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .top .btn{padding:0 16px;font-size:14px}
+  .logo{font-size:19px}
+  .hero-btns .btn{flex:1 1 100%}
+  .facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .facts div{font-size:12.5px}
+  .facts b{font-size:26px}
+  .pay{font-size:11.5px;padding:8px 10px}.pay b{font-size:14px}.pay i{flex-basis:26px;height:26px}
+  .badge{bottom:6%}
+  .case{padding:18px}
+  .case-sum{font-size:40px}
+  .sk-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .sk{padding:16px}
+  .sk span{font-size:13.5px}
+  .stages,.how{grid-template-columns:1fr}
+  .price{font-size:46px}
+  .ab-box{grid-template-columns:1fr;text-align:left}
+  .ab-photo{width:110px;height:110px}
+  .final-btns .btn,.q-res .btns .btn{flex:1 1 100%}
+}
+@media (max-width:360px){.sk-grid{grid-template-columns:1fr}.facts b{font-size:23px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Вайбкодинг — наверх">Вайб<b>кодинг</b></a>
+    <nav class="menu" aria-label="Меню">
+      <a href="#mansur">О курсе</a>
+      <a href="#results">Результаты</a>
+      <a href="#works">Работы</a>
+      <a href="#program">Программа</a>
+      <a href="#plans">Тарифы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="#plans" class="btn btn-main">Выбрать тариф</a>
+  </div>
+</header>
+
+<main>
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Онлайн-курс · старт 10 ноября</span>
+      <h1 class="h">Вайбкодинг<span class="g">от А до Я</span></h1>
+      <p class="hero-lead">Делай сайты, Telegram-ботов и мини-приложения с помощью нейросетей и продавай их бизнесу. <b>Без опыта в коде</b> — первый сайт прямо с телефона.</p>
+      <div class="sale" id="sale"><span id="saleText">Старт обучения — 10 ноября</span><b id="saleTimer"></b></div>
+      <div class="hero-btns">
+        <a href="#plans" class="btn btn-main">Выбрать тариф →</a>
+        <a href="#results" class="btn btn-ghost">Смотреть результаты</a>
+      </div>
+      <div class="facts">
+        <div><b>500К+</b>заработал спикер на вайбкодинге</div>
+        <div><b>14</b>модулей практики</div>
+        <div><b>0</b>опыта в коде для старта</div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-circle" aria-hidden="true"></div>
+      <img src="img/mansur.webp" alt="Мансур Джамалдинов — ведёт курс" width="900" height="1152" fetchpriority="high">
+      <div class="pay p1" aria-hidden="true"><i>₽</i><div><b>780 000 ₽</b>Айнур · ученик</div></div>
+      <div class="pay p2" aria-hidden="true"><i>₽</i><div><b>≈ 500 000 ₽</b>Далер · ученик</div></div>
+      <div class="badge"><b>Мансур Джамалдинов</b><small>ведёт курс · 15 лет в бизнесе</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- МАНСУР -->
+<section class="about" id="mansur" style="padding-top:clamp(40px,6vw,72px)">
+  <div class="wrap">
+    <div class="ab-box reveal">
+      <div class="ab-photo"><img src="img/mansur.webp" alt="Мансур Джамалдинов" width="900" height="1152" loading="lazy"></div>
+      <div>
+        <span class="eyebrow">Курс ведёт</span>
+        <h2 class="h sec-title">Мансур <span class="g">Джамалдинов</span></h2>
+        <p>Бизнесмен и инвестор с шариатским образованием. Собрал команду практиков, которые сами зарабатывают на вайбкодинге,. Спикер курса — Аюб.</p>
+        <div class="ab-tags"><span>15 лет в бизнесе</span><span>Шариатский факультет</span><span>6 языков</span><span>Магистратура в Малайзии</span><span>Топ-школы бизнеса</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕЗУЛЬТАТЫ -->
+<section class="dark" id="results">
+  <div class="wrap">
+    <span class="eyebrow reveal">Реальные результаты</span>
+    <h2 class="h sec-title reveal">Они уже зарабатывают <span class="g">на вайбкодинге</span></h2>
+    <p class="sec-lead reveal">Спикер курса Аюб и ученики Мансура. Настоящие проекты и настоящие оплаты — нажмите на чек, чтобы увеличить.</p>
+
+    <div class="cases">
+      <article class="case reveal">
+        <div class="case-top"><img src="img/ayub.webp" alt="Аюб" width="68" height="68" loading="lazy"><div><b>Аюб</b><small>спикер курса · делает сайты и ботов для бизнеса</small></div></div>
+        <div class="case-sum">500 000+ ₽<small>заработал на вайбкодинге, сейчас ведёт действующие проекты</small></div>
+        <ul>
+          <li><span>Cold Brew — сайт бренда кофе</span><b>40 000 ₽</b></li>
+          <li><span>Family House — загородные дома</span><b>30 000 ₽</b></li>
+        </ul>
+        <div class="checks c3">
+          <button class="chk" type="button" data-full="img/c-y1.webp" aria-label="Чек 50 000 ₽"><img src="img/c-y1.webp" alt="" loading="lazy"><span>+50 000</span></button>
+          <button class="chk" type="button" data-full="img/c-y2.webp" aria-label="Чек 10 000 ₽"><img src="img/c-y2.webp" alt="" loading="lazy"><span>+10 000</span></button>
+          <button class="chk" type="button" data-full="img/c-y3.webp" aria-label="Чек 10 000 ₽"><img src="img/c-y3.webp" alt="" loading="lazy"><span>+10 000</span></button>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-top"><img src="img/ainur.webp" alt="Айнур" width="68" height="68" loading="lazy"><div><b>Айнур</b><small>20 лет, Медина · был менеджером по продажам</small></div></div>
+        <div class="case-sum">780 000 ₽<small>заработал на сайтах и запусках, ещё 2 проекта на согласовании</small></div>
+        <ul>
+          <li><span>Интернет-магазин для блогера</span><b>80 000 ₽</b></li>
+          <li><span>WareManage — первый проект</span><b>40 000 ₽</b></li>
+          <li><span>Демо мобильного приложения</span><b>15 000 ₽</b></li>
+        </ul>
+        <div class="checks">
+          <button class="chk" type="button" data-full="img/c-a2.webp" aria-label="Чек 40 000 ₽"><img src="img/c-a2.webp" alt="" loading="lazy"><span>+40 000</span></button>
+          <button class="chk" type="button" data-full="img/c-a1.webp" aria-label="Чек 20 000 ₽"><img src="img/c-a1.webp" alt="" loading="lazy"><span>+20 000</span></button>
+          <button class="chk" type="button" data-full="img/c-a3.webp" aria-label="Чек 20 000 ₽"><img src="img/c-a3.webp" alt="" loading="lazy"><span>+20 000</span></button>
+          <button class="chk" type="button" data-full="img/c-a4.webp" aria-label="Оплата 182 USDT"><img src="img/c-a4.webp" alt="" loading="lazy"><span>182 USDT</span></button>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-top"><img src="img/daler.webp" alt="Далер" width="68" height="68" loading="lazy"><div><b>Далер</b><small>24 года · со склада Wildberries — к своим сайтам</small></div></div>
+        <div class="case-sum">≈ 500 000 ₽<small>заработал на сайтах — начинал с первого заказа за 40 000 ₽</small></div>
+        <ul>
+          <li><span>Way Building — строительная компания</span><b>45 000 ₽</b></li>
+          <li><span>Yoshi Bar — доставка роллов</span><b>40 000 ₽</b></li>
+        </ul>
+        <div class="checks c3">
+          <button class="chk" type="button" data-full="img/c-d1.webp" aria-label="Чек 25 000 и 15 000 ₽"><img src="img/c-d1.webp" alt="" loading="lazy"><span>+40 000</span></button>
+          <button class="chk" type="button" data-full="img/c-d2.webp" aria-label="Чек 20 000 ₽"><img src="img/c-d2.webp" alt="" loading="lazy"><span>+20 000</span></button>
+          <button class="chk" type="button" data-full="img/c-d3.webp" aria-label="Чек 20 000 ₽"><img src="img/c-d3.webp" alt="" loading="lazy"><span>+20 000</span></button>
+        </div>
+      </article>
+    </div>
+    <p class="disc reveal">Имена плательщиков скрыты. Это личные результаты, а не обещание дохода: заработок зависит от вашей практики и усилий.</p>
+  </div>
+</section>
+
+<!-- РАБОТЫ -->
+<section id="works">
+  <div class="wrap">
+    <span class="eyebrow reveal">Работы</span>
+    <h2 class="h sec-title reveal">Сайты, <span class="g">за которые заплатили</span></h2>
+    <p class="sec-lead reveal">Каждый сделан с помощью нейросетей — такие же проекты вы научитесь делать на курсе.</p>
+    <div class="works" tabindex="0" aria-label="Работы — листайте вбок">
+      <article class="work"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>coldbrewmoscow.ru</span></div><img src="img/w-cb.webp" alt="Сайт Cold Brew" width="1400" height="875" loading="lazy"></div>
+        <div class="work-info"><div class="row"><b>Cold Brew</b><span class="pr">40 000 ₽</span></div><small>Бренд холодного кофе: витрина, корзина, админка · около 5 часов работы</small></div></article>
+      <article class="work"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Family House</span></div><img src="img/w-fh.webp" alt="Сайт Family House" width="1400" height="875" loading="lazy"></div>
+        <div class="work-info"><div class="row"><b>Family House</b><span class="pr">30 000 ₽</span></div><small>Загородные дома: галереи, цены по сезонам, календарь броней</small></div></article>
+      <article class="work"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>waybuilding.ru</span></div><img src="img/w-dw.webp" alt="Сайт Way Building" width="1400" height="875" loading="lazy"></div>
+        <div class="work-info"><div class="row"><b>Way Building</b><span class="pr">45 000 ₽</span></div><small>Строительная компания: услуги, смета, калькулятор · сделал Далер</small></div></article>
+      <article class="work"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>yoshi-nartkala.ru</span></div><img src="img/w-dy.webp" alt="Сайт Yoshi Bar" width="1400" height="875" loading="lazy"></div>
+        <div class="work-info"><div class="row"><b>Yoshi Bar</b><span class="pr">40 000 ₽</span></div><small>Доставка роллов и пиццы: меню, акции, корзина · сделал Далер</small></div></article>
+    </div>
+    <p class="swipe">← листайте →</p>
+  </div>
+</section>
+
+<!-- НАВЫКИ -->
+<section class="skills" id="skills">
+  <div class="wrap">
+    <span class="eyebrow reveal">Чему научишься</span>
+    <h2 class="h sec-title reveal">8 навыков, <span class="g">которые продаются</span></h2>
+    <div class="sk-grid">
+      <div class="sk reveal"><i aria-hidden="true">🤖</i><b>Работать с ИИ</b><span>Claude, ChatGPT, Codex, Cursor — задачи с первого раза</span></div>
+      <div class="sk reveal"><i aria-hidden="true">🖥️</i><b>Делать сайты</b><span>Лендинги, которые красиво смотрятся на телефоне</span></div>
+      <div class="sk reveal"><i aria-hidden="true">🌐</i><b>Выкладывать в интернет</b><span>Домен, хостинг, Метрика, поиск</span></div>
+      <div class="sk reveal"><i aria-hidden="true">💬</i><b>Telegram-боты</b><span>Запись, заявки, рассылки, оплата</span></div>
+      <div class="sk reveal"><i aria-hidden="true">📱</i><b>Мини-приложения</b><span>Каталог, корзина, запись внутри Telegram</span></div>
+      <div class="sk reveal"><i aria-hidden="true">🧠</i><b>ИИ-боты для бизнеса</b><span>Сами отвечают клиентам и знают прайс</span></div>
+      <div class="sk reveal"><i aria-hidden="true">⚙️</i><b>Автоматизация</b><span>Сайт → бот → таблица → CRM</span></div>
+      <div class="sk hl reveal"><i aria-hidden="true">💰</i><b>Находить клиентов</b><span>Где искать, сколько брать, как взять предоплату</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОГРАММА -->
+<section id="program">
+  <div class="wrap">
+    <span class="eyebrow reveal">Программа</span>
+    <h2 class="h sec-title reveal">14 модулей — <span class="g">4 этапа</span></h2>
+    <div class="stages">
+      <div class="stage reveal"><span class="n">ЭТАП 1</span><h3>Основы ИИ</h3><ol><li><span>01</span>Что такое вайбкодинг</li><li><span>02</span>Выбор нейросети под задачу</li><li><span>03</span>Как ставить задачи ИИ</li><li><span>04</span>Сайт, сервер, база — на пальцах</li></ol></div>
+      <div class="stage reveal"><span class="n">ЭТАП 2</span><h3>Сайты</h3><ol><li><span>05</span>Сайты и лендинги</li><li><span>06</span>Публикация: домен, хостинг</li><li><span>07</span>ИИ-агенты: Claude Code, Codex</li></ol></div>
+      <div class="stage reveal"><span class="n">ЭТАП 3</span><h3>Боты и приложения</h3><ol><li><span>08</span>Telegram-боты</li><li><span>09</span>ИИ-боты для бизнеса</li><li><span>10</span>Мини-приложения</li><li><span>11</span>Веб-приложения</li><li><span>12</span>Автоматизация бизнеса</li></ol></div>
+      <div class="stage reveal"><span class="n">ЭТАП 4</span><h3>Заработок</h3><ol><li><span>13</span>Ошибки, безопасность, сдача проекта</li><li><span>14</span>Портфолио, клиенты, продажи, цена</li></ol></div>
+    </div>
+    <div class="how">
+      <div class="reveal"><i>1</i>Смотришь короткий урок</div>
+      <div class="reveal"><i>2</i>Делаешь свой проект с ИИ</div>
+      <div class="reveal"><i>3</i>Куратор проверяет работу</div>
+      <div class="reveal"><i>4</i>Выходишь с готовыми работами</div>
+    </div>
+  </div>
+</section>
+
+<!-- ТЕСТ -->
+<section class="quiz-sec" id="quiz">
+  <div class="wrap">
+    <div class="quiz reveal">
+      <div>
+        <span class="eyebrow">Тест · 3 вопроса</span>
+        <h2 class="h sec-title">Какой тариф <span class="g">подойдёт тебе?</span></h2>
+        <p class="sec-lead">Ответь на 3 вопроса — подскажем формат, который подходит под твою цель.</p>
+      </div>
+      <div class="quiz-box" id="quizBox">
+        <div class="q-bar"><i id="qBar"></i></div>
+        <div id="qAsk">
+          <div class="q-step" id="qStep">Вопрос 1 из 3</div>
+          <div class="q-title" id="qTitle"></div>
+          <div class="q-opts" id="qOpts"></div>
+        </div>
+        <div class="q-res" id="qRes" aria-live="polite">
+          <div class="q-step">Тебе подходит</div>
+          <div class="tag" id="qName"></div>
+          <p id="qWhy"></p>
+          <div class="btns">
+            <a href="https://t.me/vibecoding_edu_bot" class="btn btn-main" id="qGo" target="_blank" rel="noopener noreferrer">Записаться через бот →</a>
+            <a href="#plans" class="btn btn-ghost">Сравнить тарифы</a>
+          </div>
+          <button type="button" class="q-back" id="qAgain">Пройти заново</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="plans-sec" id="plans">
+  <div class="wrap">
+    <span class="eyebrow reveal">Тарифы</span>
+    <h2 class="h sec-title reveal">Выбери <span class="g">свой формат</span></h2>
+    <p class="sec-lead reveal">Цены первого потока — самые низкие. Нажмите «Выбрать» — откроется наш бот в Telegram: ответит на вопросы и запишет на курс.</p>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <div class="pic" aria-hidden="true">
+          <div class="chip l">Свой сайт <em>✓ готов</em></div>
+          <div class="phone"><img src="img/w-cbm.webp" alt="" loading="lazy"></div>
+          <div class="chip r">Сделано <em>с телефона</em></div>
+        </div>
+        <div class="plan-body">
+          <div class="tag">Старт</div>
+          <div class="sub">Сделать свой первый сайт и попробовать</div>
+          <div class="pr-box" data-price="start"><div class="pr-old"><s>27 900 ₽</s><span class="pr-off">−54%</span></div><div class="price">12 900 <small>₽</small></div><div class="pr-next">↑ Следующая цена — 15 900 ₽</div></div>
+          <ul class="keys">
+            <li>Первый сайт с телефона на своём адресе</li>
+            <li>Заявки с сайта приходят в Telegram</li>
+            <li>1 созвон со спикером</li>
+            <li>Доступ 3 месяца</li>
+          </ul>
+          <div class="gift"><i aria-hidden="true">🎁</i><div><b>«Быстрый запуск первого проекта»</b>3 готовых дизайна сайтов, видео и чек-лист проверки</div></div>
+          <details class="more"><summary>Всё, что входит</summary><ul>
+            <li>Как работать с ИИ: подписки, правильные запросы, типичные ошибки</li>
+            <li>Первый сайт с телефона — от пустого экрана до своего адреса в интернете</li>
+            <li>Форма заявки, которая приходит в Telegram</li>
+            <li>Юридический минимум: политика, согласие, cookie</li>
+            <li>Общий чат учеников</li>
+            <li>Проверка итогового сайта куратором</li>
+          </ul></details>
+          <a href="https://t.me/vibecoding_edu_bot?start=start" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Выбрать «Старт»</a>
+        </div>
+      </article>
+
+      <article class="plan pop reveal">
+        <span class="hot">Основной</span>
+        <div class="pic" aria-hidden="true">
+          <div class="laptop"><img src="img/w-dw.webp" alt="" loading="lazy"></div>
+          <div class="tg"><b>Новая заявка с сайта</b>Нужен сайт для кафе, бюджет 40 000 ₽</div>
+        </div>
+        <div class="plan-body">
+          <div class="tag">Профи</div>
+          <div class="sub">Делать проекты для клиентов и зарабатывать</div>
+          <div class="pr-box" data-price="profi"><div class="pr-old"><s>39 900 ₽</s><span class="pr-off">−30%</span></div><div class="price">27 900 <small>₽</small></div><div class="pr-next">↑ Следующая цена — 29 900 ₽</div></div>
+          <ul class="keys">
+            <li>Сайты для бизнеса, боты, мини-приложения</li>
+            <li>Где искать клиентов и сколько брать</li>
+            <li>Проверка всех заданий + 2 созвона</li>
+            <li>Портфолио из 3 работ · доступ 6 месяцев</li>
+          </ul>
+          <div class="gift"><i aria-hidden="true">🎁</i><div><b>«Первые коммерческие проекты»</b>3 готовых ТЗ, 5 исходников сайтов для портфолио, разбор общения с заказчиком</div></div>
+          <details class="more"><summary>Всё, что входит</summary><ul>
+            <li>Всё из тарифа «Старт»</li>
+            <li>Сайты для бизнеса: каталог, админка для владельца, приём оплаты</li>
+            <li>Telegram-боты и мини-приложения</li>
+            <li>CRM, таблицы и автоматизации</li>
+            <li>Проверка сайта перед сдачей: безопасность, телефоны, законы</li>
+            <li>Поиск клиентов: где искать и как написать первое сообщение</li>
+            <li>Готовый прайс по видам работ</li>
+            <li>Продажи: созвон, возражения, предоплата</li>
+            <li>Передача сайта клиенту: домен, хостинг, доступы</li>
+            <li>Готовые шаблоны: юрпакет, админка, аудит сайта</li>
+          </ul></details>
+          <a href="https://t.me/vibecoding_edu_bot?start=profi" class="btn btn-main" target="_blank" rel="noopener noreferrer">Выбрать «Профи»</a>
+        </div>
+      </article>
+
+      <article class="plan vip reveal">
+        <span class="hot">Всё включено</span>
+        <div class="pic" aria-hidden="true">
+          <div class="call">
+            <div><img src="img/ayub.webp" alt="" loading="lazy"><span>Аюб</span></div>
+            <div><img src="img/mansur.webp" alt="" loading="lazy"><span>Мансур</span></div>
+          </div>
+          <div class="call-bar"><i>🎙 8 + 4 созвона</i><i class="end">Ваш проект</i></div>
+        </div>
+        <div class="plan-body">
+          <div class="tag">VIP</div>
+          <div class="sub">Всё из «Профи» и личная работа со спикером</div>
+          <div class="pr-box" data-price="vip"><div class="pr-old"><s>79 900 ₽</s><span class="pr-off">−25%</span></div><div class="price">59 900 <small>₽</small></div><div class="pr-next">↑ Следующая цена — 69 900 ₽</div></div>
+          <ul class="keys">
+            <li>8 созвонов с Аюбом + 4 с Мансуром</li>
+            <li>Ваш реальный проект делаем вместе</li>
+            <li>Личный чат со спикером</li>
+            <li>Доступ 12 месяцев</li>
+          </ul>
+          <div class="gift"><i aria-hidden="true">🎁</i><div><b>«Персональная стратегия»</b>Консультация с Аюбом по проекту и разбор коммерческого предложения с Мансуром</div></div>
+          <details class="more"><summary>Всё, что входит</summary><ul>
+            <li>Всё из тарифа «Профи»</li>
+            <li>8 созвонов с Аюбом — по 2 в неделю</li>
+            <li>4 созвона с Мансуром — в конце каждой недели</li>
+            <li>Ваш реальный проект или заказ клиента делаем вместе</li>
+            <li>Сложные проекты: мини-приложения с оплатой, CRM, ИИ-ассистенты, сервер</li>
+            <li>Монтаж видео с помощью ИИ</li>
+            <li>Дополнительные способы заработать на ИИ</li>
+            <li>Договор, самозанятость или ИП, документы для клиента</li>
+            <li>Личный чат со спикером, ответ в течение дня</li>
+          </ul></details>
+          <a href="https://t.me/vibecoding_edu_bot?start=vip" class="btn btn-main" target="_blank" rel="noopener noreferrer">Выбрать VIP</a>
+        </div>
+      </article>
+    </div>
+    <p class="after-plans reveal">Не знаете, что выбрать? <a href="#quiz">Пройдите тест</a> или <a href="https://t.me/vibecoding_edu_bot?start=help" target="_blank" rel="noopener noreferrer">спросите в боте</a></p>
+  </div>
+</section>
+
+
+<!-- ВОПРОСЫ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow reveal">Вопросы</span>
+    <h2 class="h sec-title reveal">Частые <span class="g">вопросы</span></h2>
+    <div class="faq">
+      <details><summary>Нужен ли опыт в программировании?</summary><p>Нет. Код пишет нейросеть, а вы учитесь ставить ей задачи и проверять результат. Начинаем с нуля.</p></details>
+      <details><summary>Можно ли учиться только с телефона?</summary><p>Да. Первый сайт делаем прямо с телефона, компьютер не обязателен.</p></details>
+      <details><summary>Нужно ли платить за нейросети?</summary><p>Для старта хватит бесплатных тарифов. Когда понадобятся платные — покажем, какие выбрать и как оплатить из России.</p></details>
+      <details><summary>Я совсем не разбираюсь в технике. Получится?</summary><p>Да. Всё показываем по шагам на экране, а в чате помогут, если что-то не получилось.</p></details>
+      <details><summary>Когда старт и как записаться?</summary><p>Старт — 10 ноября. Нажмите «Выбрать» у нужного тарифа — откроется наш бот в Telegram, он ответит на вопросы и запишет на курс.</p></details>
+      <details><summary>Можно ли потом перейти на тариф выше?</summary><p>Да, напишите в бот — подскажем условия перехода.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="final dark" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Старт 10 ноября</span>
+    <h2 class="h sec-title reveal">Займи место <span class="g">по цене первого потока</span></h2>
+    <p class="sec-lead reveal">Остались вопросы — напишите в бот. Ответим, поможем выбрать тариф и запишем на курс.</p>
+    <div class="final-btns reveal">
+      <a href="https://t.me/vibecoding_edu_bot?start=site" class="btn btn-sun" target="_blank" rel="noopener noreferrer">Написать в Telegram →</a>
+      <a href="#plans" class="btn btn-ghost">Смотреть тарифы</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <span class="logo">Вайб<b>кодинг</b></span>
+      Онлайн-курс «Вайбкодинг от А до Я»
+      <small>Результат и доход зависят от вашей работы и не гарантируются.</small>
+    </div>
+    <div>
+      <a href="privacy.html">Политика обработки персональных данных</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Чек"><button type="button" id="lbX" aria-label="Закрыть">✕</button><img id="lbImg" alt="Чек об оплате"></div>
+<a href="#plans" class="mbar hide" id="mbar">Выбрать тариф · от&nbsp;<span data-from>12 900</span>&nbsp;₽</a>
+<script src="main.js" defer></script>
+</body>
+</html>
