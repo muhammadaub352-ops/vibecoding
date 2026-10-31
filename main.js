@@ -18,8 +18,8 @@
   // ===== цены по датам (время московское) =====
   var SALES_OPEN = new Date('2026-10-28T00:00:00+03:00');
   var PERIODS = [
-    { until: new Date('2026-10-30T00:00:00+03:00'), start: 12900, profi: 27900, vip: 59900, next: { start: 15900, profi: 29900, vip: 69900 } },
-    { until: new Date('2026-11-20T00:00:00+03:00'), start: 15900, profi: 29900, vip: 69900, next: { start: 27900, profi: 39900, vip: 79900 } },
+    { until: new Date('2026-10-30T00:00:00+03:00'), start: 12900, profi: 27900, vip: 59900, next: { start: 15900, profi: 29900, vip: 63900 } },
+    { until: new Date('2026-11-20T00:00:00+03:00'), start: 15900, profi: 29900, vip: 63900, next: { start: 27900, profi: 39900, vip: 79900 } },
     { until: null, start: 27900, profi: 39900, vip: 79900, next: null }
   ];
   var OLD = { start: 27900, profi: 39900, vip: 79900 };
