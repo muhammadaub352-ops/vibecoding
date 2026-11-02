@@ -19,8 +19,8 @@
   var SALES_OPEN = new Date('2026-10-28T00:00:00+03:00');
   var PERIODS = [
     { until: new Date('2026-10-30T00:00:00+03:00'), start: 12900, profi: 27900, vip: 59900, next: { start: 15900, profi: 29900, vip: 63900 } },
-    { until: new Date('2026-11-06T16:00:00+03:00'), start: 15900, profi: 29900, vip: 63900, next: { start: 27900, profi: 39900, vip: 79900 } },
-    { until: null, start: 27900, profi: 39900, vip: 79900, next: null }
+    { until: new Date('2026-11-06T16:00:00+03:00'), start: 15900, profi: 29900, vip: 63900, next: { start: 17900, profi: 31900, vip: 65900 } },
+    { until: null, start: 17900, profi: 31900, vip: 65900, next: null }
   ];
   var OLD = { start: 27900, profi: 39900, vip: 79900 };
   function rub(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
@@ -40,11 +40,12 @@
     // строка над кнопками и таймер
     var text = document.getElementById('saleText'), timer = document.getElementById('saleTimer'), target;
     if (now < SALES_OPEN) { text.textContent = 'Продажи открываются 28 октября'; target = null; }
-    else if (p.until) { text.textContent = 'Цена вырастет через'; target = p.until; }
+    else if (p.until) { text.textContent = 'Цена вырастет'; target = p.until; }
     else { text.textContent = 'Старт обучения — 10 ноября'; target = null; }
     if (target) {
-      var ms = target - now, d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
-      timer.textContent = (d ? d + ' дн ' : '') + h + ' ч ' + m + ' мин';
+      // считаем по календарным дням Москвы: сегодня 2 ноября, повышение 6-го в 16:00 → «через 4 дня»
+      var msk = function (x) { return Math.floor((x.getTime() + 3 * 36e5) / 864e5); }, d = msk(target) - msk(now);
+      timer.textContent = d > 1 ? 'через ' + d + (d < 5 ? ' дня' : ' дней') : d === 1 ? 'завтра в 16:00' : 'сегодня в 16:00';
     } else timer.textContent = '';
   }
   render(); setInterval(render, 30000);
